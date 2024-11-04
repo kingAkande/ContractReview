@@ -67,6 +67,8 @@ The Zaros imports introduce essential utility functions, constants, configuratio
 
 ***Structure Definition***
 
+
+
 The GlobalConfigurationBranch contract inherits from both Ownable and AccessControl:
 
 
@@ -120,6 +122,7 @@ The contract emits 14 events, which play a vital role in tracking actions and up
 
 
 
+
 ***Modifiers***
 
 Modifiers used in this contract improve its security and enforce access rules:
@@ -165,6 +168,7 @@ The contract contains 16 functions, each designed to manage and configure variou
     getMarketConfiguration: A view function that retrieves the configuration data for a specific market, based on MarketConfigurationData. This function does not emit events as it is purely a data retrieval method.
 
     getRoleSetting: A view function that returns the configuration settings for a specified role, using the RoleSetting struct. Like getMarketConfiguration, it is intended for data retrieval without emitting events.
+
 
 
 
