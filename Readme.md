@@ -9,26 +9,32 @@ This Solidity contract, GlobalConfigurationBranch, is part of a larger decentral
 
 This setup supports the seamless operation of a perpetual trading ecosystem where robust configuration management is essential for ensuring security, liquidity, and scalability across various trading pairs and markets. The contract’s modular design allows for compatibility with other Zaros ecosystem contracts, promoting interoperability and ensuring that system-wide settings are consistently applied across different components.
 
-Imports Overview
+
+
+***Imports Overview*** 
 
 The GlobalConfigurationBranch contract utilizes several Zaros dependencies alongside OpenZeppelin libraries. Here is an overview of these imports, detailing their purpose and how they contribute to the contract’s functionality.
 
-OpenZeppelin Libraries:
+
+***OpenZeppelin Libraries:***
 
 AccessControl, Ownable, SafeMath, IERC20, Address: These modules handle role-based access, ownership, safe arithmetic operations, ERC-20 compliance, and address utility functions, ensuring security, permissions control, and compatibility with external token operations.
 
-PancakeSwap Interface (IPancakeRouter02):
+***PancakeSwap Interface (IPancakeRouter02):***
 
 Enables interaction with the PancakeSwap DEX for token swaps, liquidity management, or other financial operations in decentralized finance (DeFi) contexts.
 
-Anti-Bot Technology (INoBotsTech):
+***Anti-Bot Technology (INoBotsTech):***
 
 Used to mitigate bot interactions, securing the contract’s functions from automated traffic that could disrupt public interactions or token distribution.
 
 
-Zaros Dependencies
+
+***Zaros Dependencies***
 
 The Zaros imports introduce essential utility functions, constants, configurations, and market-related data handling for the GlobalConfigurationBranch contract. Each import brings specific utilities for managing perpetual markets, order fees, referral systems, and other specialized configurations, aligning with the Zaros ecosystem’s modular structure.
+
+
 
     Constants (@zaros/utils/Constants.sol):
         This module defines important constant values, likely used across the contract to maintain consistency and prevent magic numbers. Using a central source for constants enhances readability and simplifies updates if these values need adjustments.
@@ -58,29 +64,43 @@ The Zaros imports introduce essential utility functions, constants, configuratio
         CustomReferralConfiguration handles the referral system settings, potentially enabling incentivization and referral tracking within the contract. It supports building custom referral schemes, promoting user engagement, and fostering an ecosystem where users are rewarded for referrals.
 
 
-Structure Definition
+
+***Structure Definition***
 
 The GlobalConfigurationBranch contract inherits from both Ownable and AccessControl:
+
+
 
     Ownable: This inheritance ensures that the contract has an owner, typically granting exclusive rights to execute critical functions or manage high-level configurations.
     AccessControl: This module introduces role-based permissions, enabling more granular access control beyond simple ownership. Specific roles can be assigned to addresses, granting them limited permissions for various contract operations, which is essential in a DeFi system where multiple actors may require specific privileges.
 
-State Variables
+
+
+***State Variables***
 
 The state variables in this contract are structured to manage different configurations, role settings, and branch-specific administrative data. Key state variables include:
+
 
     configurations: A mapping that stores general configuration parameters, likely indexed by unique keys for flexibility and scalability.
     roleSettings: A mapping linking different roles to their specific settings, ensuring that each role operates under defined parameters.
     branchAdmins: A mapping assigning administrative control over different branches, allowing decentralized control over various segments of the system.
 
 These variables are organized for efficient access and modular configuration across different roles and market settings within the ecosystem.
-Constructor
+
+
+
+
+***Constructor***
 
 The constructor function initializes the contract, setting the initial configurations necessary for operation. By establishing baseline parameters and ownership upon deployment, the constructor ensures that the contract is set up with secure access controls and any initial configuration values. It likely assigns the deployer as the owner, aligning with the Ownable module’s functionality, and may set up initial roles as per the AccessControl inheritance.
 
-Events:
+
+
+***Events:***
 
 The contract emits 14 events, which play a vital role in tracking actions and updates within the system. These events facilitate transparency and off-chain monitoring by allowing external services to listen to configuration changes, role updates, and other key events:
+
+
 
     ConfigurationUpdated: Emitted when a system configuration is modified, indicating both the key and new value.
     RoleSettingsUpdated: Emitted when settings for a specific role are updated, detailing the role and its new settings.
@@ -99,7 +119,8 @@ The contract emits 14 events, which play a vital role in tracking actions and up
 
 
 
-Modifiers
+
+***Modifiers***
 
 Modifiers used in this contract improve its security and enforce access rules:
 
@@ -107,7 +128,9 @@ Modifiers used in this contract improve its security and enforce access rules:
     onlyAdmin: Enforces admin-level permissions for functions that require role-based control, providing an additional layer of security.
 
 
-Functions
+
+
+***Functions***
 
 The contract contains 16 functions, each designed to manage and configure various aspects of the trading system. Below is an overview of each function:
 
@@ -144,7 +167,9 @@ The contract contains 16 functions, each designed to manage and configure variou
     getRoleSetting: A view function that returns the configuration settings for a specified role, using the RoleSetting struct. Like getMarketConfiguration, it is intended for data retrieval without emitting events.
 
 
-Overall Evaluation
+
+
+***Overall Evaluation***
 
 The GlobalConfigurationBranch contract is a well-structured, role-based configuration manager within a DeFi protocol for perpetual futures trading. By leveraging modular design, inheritance from Ownable and AccessControl, and comprehensive event logging, the contract ensures secure and flexible management of system-wide settings, collateral types, and market configurations. The inclusion of 16 well-defined functions and two structs (RoleSetting and MarketConfigurationData) enables streamlined, transparent configuration control across different protocol components.
 
