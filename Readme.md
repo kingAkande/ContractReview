@@ -3,7 +3,7 @@
 ### Contract: GlobalConfigurationBranch.sol Repo
 
 
-Introduction
+***Introduction***
 
 This Solidity contract, GlobalConfigurationBranch, is part of a larger decentralized finance (DeFi) protocol focused on perpetual futures trading. The contract is designed to manage and configure key aspects of a decentralized exchange (DEX) system, allowing the setting and adjustment of system parameters, token addresses, collateral types, and liquidation priorities. By centralizing these configurations, GlobalConfigurationBranch enables efficient management and flexible control over market dynamics, collateralization, and settlement operations within the protocol.
 
